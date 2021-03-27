@@ -22,7 +22,7 @@ public class DeckTester {
 			case("first"): 
 				System.out.println("Enter how many cards you want from the top");
 				int n = in.nextInt();
-				for (card c: deck.getFirstN(n))
+				for (Card c: deck.getFirstN(n))
 					System.out.print(c);
 				break;
 			case("random"):
