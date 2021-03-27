@@ -2,19 +2,19 @@ package JavaCW;
 import java.util.Random;
 
 public class Deck {
-	private card[] cards;
+	private Card[] cards;
 	Deck deck;
 	
 	public Deck(int n) {
-		cards = new card[n];
+		cards = new Card[n];
 	}
 	
 	public void addCard(int index, String suit, int num) {
 		
-		cards[index] = new card(suit, num);
+		cards[index] = new Card(suit, num);
 	}
 	
-	public card getRandom() {
+	public Card getRandom() {
 		int rand = (int) (Math.random() * cards.length);
 		return cards[rand];
 	}
@@ -22,14 +22,14 @@ public class Deck {
 	public void shuffle() {
 		for(int i = 0; i < cards.length; i++) {
 			int rand = (int)(Math.random() * cards.length);
-			card temp = cards[rand];
+			Card temp = cards[rand];
 			cards[rand] = cards[i];
 			cards[i] = temp;
 		}
 	}
 	
-	public card[] getFirstN(int n) {
-		card[] tempCards = new card[n];
+	public Card[] getFirstN(int n) {
+		Card[] tempCards = new Card[n];
 		for(int i = 0; i < n; i++) {
 			tempCards[i] = cards[i];
 		}
@@ -38,7 +38,7 @@ public class Deck {
 	
 	public String toString() {
 		String out = "";
-		for(card c: cards) {
+		for(Card c: cards) {
 			if(c != null) {
 				System.out.println(c.toString());
 				out += c.toString();
@@ -62,7 +62,7 @@ public class Deck {
 	}
 	
 	public void sort() {
-		card[] tempCards = new card[cards.length];
+		Card[] tempCards = new Card[cards.length];
 		for(int i = 0; i < cards.length; i++) {
 			int smallest = findSmallest();
 			for(int j = 0; j < cards.length; j++) {
@@ -95,7 +95,7 @@ public class Deck {
 		deck.sort();
 		System.out.println(deck);
 		System.out.println();
-		card[] tempCards = deck.getFirstN(3);
+		Card[] tempCards = deck.getFirstN(3);
 		
 		for(int i = 0; i < tempCards.length; i++) {
 			System.out.println(tempCards[i]);
